@@ -7,7 +7,7 @@ import vite from "vite";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-function getAllFiles(dirPath, pageRoot, arrayOfFiles) {
+function getAllFiles(dirPath: string, pageRoot: string, arrayOfFiles: string[] = []) {
   const files = readdirSync(dirPath);
 
   arrayOfFiles = arrayOfFiles || [];
@@ -34,7 +34,7 @@ export default function () {
       proc.stdout.pipe(process.stdout);
       proc.stderr.pipe(process.stderr);
     },
-    async build(config) {
+    async build(config: any) {
       const appRoot = config.solidOptions.appRoot;
       await Promise.all([
         vite.build({

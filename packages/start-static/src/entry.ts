@@ -1,7 +1,9 @@
 import { readFileSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
+// @ts-ignore
 import { createRequest } from "solid-start/runtime/fetch.js";
+// @ts-ignore
 import prepareManifest from "solid-start/runtime/prepareManifest.js";
 import { fetch, Headers, Response, Request } from "undici";
 import entry from "./app.js";
@@ -21,7 +23,7 @@ const assetManifest = JSON.parse(
 );
 prepareManifest(manifest, assetManifest);
 
-export default async req => {
+export default async (req: any) => {
   req.headers = {};
   req.method = "GET";
   const webRes = await entry({
